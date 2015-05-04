@@ -5,10 +5,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ttab/spec.git"
+    "url": "https://github.com/ttab/ttspec.git"
   },
   "bugs": {
-    "url": "https://github.com/ttab/spec/issues"
+    "url": "https://github.com/ttab/ttspec/issues"
   },
-  "homepage": "https://github.com/ttab/spec"
+  "homepage": "https://github.com/ttab/ttspec"
 }
