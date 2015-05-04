@@ -1,5 +1,5 @@
 {
-  "name": "spec",
+  "name": "ttspec",
   "version": "0.0.0",
   "description": "TT Specifications",
   "main": "index.js",
@@ -10,6 +10,5 @@
   "bugs": {
     "url": "https://github.com/ttab/spec/issues"
   },
-  "homepage": "https://github.com/ttab/spec",
-  "private": true
+  "homepage": "https://github.com/ttab/spec"
 }
