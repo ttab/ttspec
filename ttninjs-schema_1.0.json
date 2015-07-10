@@ -1,0 +1,447 @@
+{
+    "$schema": "http://json-schema.org/draft-03/schema#",
+    "id" : "http://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#",
+    "type" : "object",
+    "title" : "TT variant of IPTC ninjs - News in JSON - version 1.0",
+    "description" : "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.0.json -- (c) Copyright 2015 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/",
+    "additionalProperties" : false,
+    "properties" : {
+        "uri" : {
+            "description" : "The identifier for this news object",
+            "type" : "string",
+            "format" : "uri",
+            "required" : true
+        },
+        "type" : {
+            "description" : "The generic news type of this news object",
+            "type" : "string",
+            "enum" : ["text", "audio", "video", "picture", "graphic", "composite", "planning"]
+        },
+        "mimetype" : {
+            "description" : "A MIME type which applies to this news object",
+            "type" : "string"
+        },
+        "representationtype" : {
+            "description" : "Indicates how complete this representation of a news item is",
+            "type" : "string",
+            "enum" : ["complete", "incomplete"]
+        },
+        "profile" : {
+            "description" : "An identifier for the kind of content of this news object. $$TT: Possible values are PUBL, DATA or INFO. Where PUBL is a news item that can be published, DATA is raw data such as tables and figures and INFO are for information purposes only (not to be published).",
+            "type" : "string"
+        },
+        "version" : {
+            "description" : "The version of the news object which is identified by the uri property",
+            "type" : "string"
+        },
+        "versioncreated" : {
+            "description" : "The date and time when this version of the news object was created",
+            "type" : "string",
+            "format" : "date-time"
+        },
+        "versionstored" : {
+            "description" : "$$TT: The date and time when this version of the news object was persisted. For a photo, versioncreated is when photo was taken, versionstored is when we indexed it to the database.",
+            "type" : "string",
+            "format" : "date-time"
+        },
+        "embargoed" : {
+            "description" : "The date and time before which all versions of the news object are embargoed. If absent, this object is not embargoed.",
+            "type" : "string",
+            "format" : "date-time"
+        },
+        "date" : {
+            "description" : "$$TT Used for items that concern a specific date such as planning posts. Notice that this holds date only, no time. See also datetime.",
+            "type" : "string",
+            "format" : "date"
+        },
+        "datetime" : {
+            "description" : "$$TT For items that concern a specific date and time. See also date.",
+            "type" : "string",
+            "format" : "date-time"
+        },
+        "embargoedreason" : {
+            "description" : "$$TT: Textual description of why article is embargoed.",
+            "type" : "string"
+        },
+        "job" : {
+            "description": "$$TT: Identifier of a grouping job this item belongs to. Typically the URI of a planning post.",
+            "type" : "string",
+            "format" : "uri"
+        },
+        "pubstatus" : {
+            "description" : "The publishing status of the news object, its value is *usable* by default.",
+            "type" : "string",
+            "enum" : ["usable", "withheld", "canceled", "replaced", "commissoned"]
+        },
+        "copyrightholder" : {
+            "description" : "The person or organisation claiming the intellectual property for the content.",
+            "type" : "string"
+        },
+        "copyrightnotice" : {
+            "description" : "Any necessary copyright notice for claiming the intellectual property for the content.",
+            "type" : "string"
+        },
+        "language" : {
+            "description" : "The human language used by the content. The value should follow IETF BCP47",
+            "type" : "string"
+        },
+        "urgency" : {
+            "description" : "The editorial urgency of the content from 1 to 9. 1 represents the highest urgency, 9 the lowest. $$TT: 1 is most urgent. 4 is normal. Definition here http://tt.se/spec/prio/1.0",
+            "type" : "number"
+        },
+        "webprio" : {
+            "description" : "$TT: TT managed editorial sort order. Priority numbers range from 1 (most important) to 4 (least). Definitions and sort logic are defined here http://tt.se/spec/webprio/1.0",
+            "type" : "number"
+        },
+        "source": {
+            "description": "$$TT: String identifier for originating source of document.",
+            "type": "string"
+        },
+        "commissioncode": {
+            "description": "$$TT: String identifier for who receives commission for this object.",
+            "type": "string"
+        },
+        "description_text" : {
+            "description" : "$$TT: Textual description of the item as text.",
+            "type": "string"
+        },
+        "description_usage" : {
+            "description" : "$$TT: TT editorial information. Can be anything from planned re-relases of object to restrictions.",
+            "type": "string"
+        },
+        "usageterms": {
+            "description": "A natural-language statement about the usage terms pertaining to the content. $$TT: Specifically contains image usage restrictions from TT's suppliers.",
+            "type": "string"
+        },
+        "body_text" : {
+            "description" : "$$TT: The textual content of the news object as text. Only present if type is PUBL.",
+            "type": "string"
+        },
+        "body_html5" : {
+            "description" : "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL.",
+            "type": "string"
+        },
+        "body_ttnitf" : {
+            "description" : "$$TT: The textual content of the news object as TTNITF.",
+            "type": "string"
+        },
+        "commissionedby": {
+            "description": "$$TT: When pubstatus is 'commissioned', this field tells who commissioned it.",
+            "type": "string"
+        },
+        "charcount" : {
+            "description" : "$$TT: The total character count in the article excluding figure captions.",
+            "type" : "number"
+        },
+        "originaltransmissionreference": {
+            "description": "$$TT: Identifier in the originating system/source.",
+            "type": "string"
+        },
+        "product" : {
+            "description" : "$$TT: TT Product classification codes. See http://tt.se/spec/product/1.0",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of the product code. \"Feature Fritid\", \"Nyheter Nöje\", etc",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the product. http://tt.se/spec/product/1.0",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the subject in a scheme (= controlled vocabulary) which is identified by the scheme property. \"FTFRI\", \"TTNJE\"",
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "person" : {
+            "description" : "An individual human being",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of a person",
+                        "type" : "string"
+                    },
+                    "rel" : {
+                        "description" : "The relationship of the content of the news object to the person",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the person",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the person in a scheme (= controlled vocabulary) which is identified by the scheme property. $$TT: http://tt.se/spec/person/1.0",
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "organisation" : {
+            "description" : "An administrative and functional structure which may act as as a business, as a political party or not-for-profit party",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of the organisation",
+                        "type" : "string"
+                    },
+                    "rel" : {
+                        "description" : "The relationship of the content of the news object to the organisation",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the organisation",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the organisation in a scheme (= controlled vocabulary) which is identified by the scheme property",
+                        "type" : "string"
+                    },
+                    "symbols" : {
+                        "description" : "Symbols used for a finanical instrument linked to the organisation at a specific market place",
+                        "type" : "array",
+                        "items" : {
+                            "type" : "object",
+                            "additionalProperties" : false,
+                            "properties" : {
+                                "ticker" : {
+                                    "description" : "Ticker symbol used for the financial instrument",
+                                    "type": "string"
+                                },
+                                "exchange" : {
+                                    "description" : "Identifier for the marketplace which uses the ticker symbols of the ticker property",
+                                    "type" : "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "place" : {
+            "description" : "A named location",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of the place",
+                        "type" : "string"
+                    },
+                    "rel" : {
+                        "description" : "The relationship of the content of the news object to the place",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the place. $$TT: http://tt.se/spec/place/1.0",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the place in a scheme (= controlled vocabulary) which is identified by the scheme property",
+                        "type" : "string"
+                    },
+                    "geometry_geojson": {
+                        "descripion": "$$TT: An optional GeoJSON description of the place.",
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "subject" : {
+            "description" : "A concept with a relationship to the content. $$TT: Used for content classification in swedish equivalent of IPTC Subject Reference see http://tt.se/spec/subref/1.0",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of the subject",
+                        "type" : "string"
+                    },
+                    "rel" : {
+                        "description" : "The relationship of the content of the news object to the subject",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0 http://tt.se/spec/keyword/1.0 ",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the subject in a scheme (= controlled vocabulary) which is identified by the scheme property",
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "event" : {
+            "description" : "Something which happens in a planned or unplanned manner",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of the event",
+                        "type" : "string"
+                    },
+                    "rel" : {
+                        "description" : "The relationship of the content of the news object to the event",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the event",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the event in a scheme (= controlled vocabulary) which is identified by the scheme property",
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "object" : {
+            "description" : "Something material, excluding persons",
+            "type" : "array",
+            "items" : {
+                "type" : "object",
+                "additionalProperties" : false,
+                "properties" : {
+                    "name" : {
+                        "description" : "The name of the object",
+                        "type" : "string"
+                    },
+                    "rel" : {
+                        "description" : "The relationship of the content of the news object to the object",
+                        "type" : "string"
+                    },
+                    "scheme" : {
+                        "description" : "The identifier of a scheme (= controlled vocabulary) which includes a code for the object",
+                        "type" : "string",
+                        "format" : "uri"
+                    },
+                    "code" : {
+                        "description": "The code for the object in a scheme (= controlled vocabulary) which is identified by the scheme property",
+                        "type" : "string"
+                    }
+                }
+            }
+        },
+        "byline" : {
+            "description" : "The name(s) of the creator(s) of the content",
+            "type" : "string"
+        },
+        "headline" : {
+            "description" : "A brief and snappy introduction to the content, designed to catch the reader's attention",
+            "type" : "string"
+        },
+        "slug" : {
+            "description" : "$$TT: Short name given to article while in production.",
+            "type": "string"
+        },
+        "located" : {
+            "description" : "The name of the location from which the content originates.",
+            "type" : "string"
+        },
+        "renditions" : {
+            "description" : "Wrapper for different renditions of non-textual content of the news object",
+            "type" : "object",
+            "additionalProperties" : false,
+            "patternProperties" : {
+                "^[a-zA-Z0-9]+" : {
+                    "description" : "A specific rendition of a non-textual content of the news object.",
+                    "type" : "object",
+                      "additionalProperties" : false,
+                    "properties" : {
+                        "href" : {
+                            "description" : "The URL for accessing the rendition as a resource",
+                            "type" : "string",
+                            "format" : "uri"
+                        },
+                        "mimetype" : {
+                            "description" : "A MIME type which applies to the rendition",
+                            "type" : "string"
+                        },
+                        "title" : {
+                            "description" : "A title for the link to the rendition resource",
+                            "type" : "string"
+                        },
+                        "height" : {
+                            "description" : "For still and moving images: the height of the display area measured in $$TT: unit and defaults to pixels",
+                            "type" : "number"
+                        },
+                        "width" : {
+                            "description" : "For still and moving images: the width of the display area measured in $$TT: unit and defaults to pixels",
+                            "type" : "number"
+                        },
+                        "sizeinbytes" : {
+                            "description" : "The size of the rendition resource in bytes",
+                            "type" : "number"
+                        },
+                        "usage" : {
+                            "description" : "$$TT: One of 'Thumbnail', 'Preview', 'Hires' or 'Hidef'",
+                            "type" : "string"
+                        },
+                        "variant" : {
+                            "description" : "$$TT: One of 'Normal', 'Watermark', 'BlackAndWhite', 'Cropped' or 'Framegrab'",
+                            "type" : "string"
+                        },
+                        "unit" : {
+                            "description" : "$$TT: The unit for width/height. Either px or mm",
+                            "type" : "string"
+                        },
+                        "bitrate" : {
+                            "description" : "$$TT: Video bitrate (if video)",
+                            "type" : "number"
+                        },
+                        "duration" : {
+                            "description" : "$$TT: Video clip curation in seconds.",
+                            "type" : "number"
+                        }
+                    }
+                }
+            }
+        },
+        "replacing" : {
+            "description" : "$$TT: Array of identifiers of news objects this object is replacing.",
+            "type" : "array",
+            "items" : {
+                "type": "string",
+                "format" : "uri"
+            }
+        },
+        "replacedby" : {
+            "description" : "$$TT: The identifier of the news object this one is replaced by.",
+            "type" : "string",
+            "format" : "uri"
+        },
+        "associations" : {
+            "description" : "Content of news objects which are associated with this news object.",
+            "type" : "object",
+            "additionalProperties" : false,
+            "patternProperties" : {
+                "^[a-zA-Z0-9]+" :  {
+                    "$ref": "http://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#"
+                }
+
+            }
+        }
+    }
+}
