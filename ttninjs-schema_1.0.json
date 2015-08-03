@@ -125,6 +125,10 @@
             "description" : "$$TT: The textual content of the news object as TTNITF.",
             "type": "string"
         },
+        "body_tfo" : {
+            "description" : "$$TT: The textual content of the news object as TFO.",
+            "type": "string"
+        },
         "commissionedby": {
             "description": "$$TT: When pubstatus is 'commissioned', this field tells who commissioned it.",
             "type": "string"
