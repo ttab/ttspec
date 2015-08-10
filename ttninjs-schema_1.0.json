@@ -113,20 +113,8 @@
             "description": "A natural-language statement about the usage terms pertaining to the content. $$TT: Specifically contains image usage restrictions from TT's suppliers.",
             "type": "string"
         },
-        "body_text" : {
-            "description" : "$$TT: The textual content of the news object as text. Only present if type is PUBL.",
-            "type": "string"
-        },
         "body_html5" : {
             "description" : "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL.",
-            "type": "string"
-        },
-        "body_ttnitf" : {
-            "description" : "$$TT: The textual content of the news object as TTNITF.",
-            "type": "string"
-        },
-        "body_tfo" : {
-            "description" : "$$TT: The textual content of the news object as TFO.",
             "type": "string"
         },
         "commissionedby": {
