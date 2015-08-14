@@ -401,7 +401,7 @@
                         },
                         "bitrate" : {
                             "description" : "$$TT: Video bitrate (if video)",
-                            "type" : "number"
+                            "type" : "string"
                         },
                         "duration" : {
                             "description" : "$$TT: Video clip curation in seconds.",
