@@ -1,0 +1,7 @@
+{
+    "product": "http://tt.se/spec/product/1.0",
+    "subject": "http://tt.se/spec/subref/1.0",
+    "keyword": "http://tt.se/spec/keyword/1.0",
+    "person": "http://tt.se/spec/person/1.0",
+    "place": "http://tt.se/spec/place/1.0"
+}
