@@ -119,7 +119,10 @@
         },
         "commissionedby": {
             "description": "$$TT: When pubstatus is 'commissioned', this field tells who commissioned it.",
-            "type": "string"
+            "type": "array",
+            "items" : {
+                "type": "string"
+            }
         },
         "charcount" : {
             "description" : "$$TT: The total character count in the article excluding figure captions.",
