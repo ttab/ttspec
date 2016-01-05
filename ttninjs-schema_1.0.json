@@ -28,7 +28,8 @@
         },
         "profile" : {
             "description" : "An identifier for the kind of content of this news object. $$TT: Possible values are PUBL, DATA or INFO. Where PUBL is a news item that can be published, DATA is raw data such as tables and figures and INFO are for information purposes only (not to be published).",
-            "type" : "string"
+            "type" : "string",
+            "enum" : ["PUBL", "DATA", "INFO"]
         },
         "version" : {
             "description" : "The version of the news object which is identified by the uri property",
