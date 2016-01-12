@@ -72,7 +72,7 @@
         "pubstatus" : {
             "description" : "The publishing status of the news object, its value is *usable* by default.",
             "type" : "string",
-            "enum" : ["usable", "withheld", "canceled", "replaced", "commissoned"]
+            "enum" : ["usable", "withheld", "canceled", "replaced", "commissioned"]
         },
         "copyrightholder" : {
             "description" : "The person or organisation claiming the intellectual property for the content.",
