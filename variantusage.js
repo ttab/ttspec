@@ -17,7 +17,7 @@
 //
 
 var VARIANT = ['Normal', 'Watermark', 'BlackAndWhite', 'Cropped', 'Framegrab'];
-var USAGE =   ['Thumbnail', 'Preview', 'Hires', 'Hidef'];
+var USAGE =   ['Thumbnail', 'Preview', 'Hires', 'Hidef', 'Lores'];
 
 module.exports = {
 
