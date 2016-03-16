@@ -438,6 +438,36 @@
                 }
 
             }
+        },
+        "revisions": {
+            "description" : "$$TT: Array of previous versions of this news object. See http://spec.tt.se/revisions.html",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties" : true,
+                "properties" : {
+                    "uri" : {
+                        "description" : "$$TT: The identifier of the previous revision.",
+                        "type" : "string",
+                        "format" : "uri",
+                        "required" : true
+                    },
+                    "slug" : {
+                        "description" : "$$TT: Short name given to article while in production.",
+                        "type": "string",
+                        "required" : false
+                    },
+                    "replacing" : {
+                        "description" : "$$TT: Array of identifiers this revision is replacing.",
+                        "type" : "array",
+                        "required" : false,
+                        "items" : {
+                            "type": "string",
+                            "format" : "uri"
+                        }
+                    }
+                }
+            }
         }
     }
 }
