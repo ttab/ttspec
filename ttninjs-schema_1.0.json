@@ -60,6 +60,16 @@
             "type" : "string",
             "format" : "date-time"
         },
+        "enddate" : {
+            "description" : "$$TT Used for items that concern a specific date such as planning posts and has a specific enddate. Notice that this holds date only, no time. See also enddatetime.",
+            "type" : "string",
+            "format" : "date"
+        },
+        "enddatetime" : {
+            "description" : "$$TT For items that concern a specific enddate and time. See also enddate.",
+            "type" : "string",
+            "format" : "date-time"
+        },
         "embargoedreason" : {
             "description" : "$$TT: Textual description of why article is embargoed.",
             "type" : "string"
