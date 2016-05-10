@@ -27,7 +27,7 @@
             "enum" : ["complete", "incomplete"]
         },
         "profile" : {
-            "description" : "An identifier for the kind of content of this news object. $$TT: Possible values are PUBL, DATA or INFO. PUBL is a news item that can be published. DATA is data such as tables and figures (that are not meant to be edited). INFO is for information purposes only (not to be published). RAW is raw data, such as unedited videos, that is meant to be further edited before publishing.",
+            "description" : "An identifier for the kind of content of this news object. $$TT: Possible values are PUBL, DATA, INFO or RAW. PUBL is a news item that can be published. DATA is data such as tables and figures (that are not meant to be edited). INFO is for information purposes only (not to be published). RAW is raw data, such as unedited videos, that is meant to be further edited before publishing.",
             "type" : "string",
             "enum" : ["PUBL", "DATA", "INFO", "RAW"]
         },
