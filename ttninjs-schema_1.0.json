@@ -527,6 +527,11 @@
                     }
                 }
             }
+        },
+        "sector": {
+            "description" : "$$TT: Designator for the 'big 5' ways of grouping content (inrikes, utrikes, etc). Not mandatory, often omitted.",
+            "type": "string",
+            "enum" : ["INR", "UTR", "EKO", "KLT", "SPT"]
         }
     }
 }
