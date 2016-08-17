@@ -6,6 +6,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2016-08-6 new field `bylines` to represent more than one person involved with item.
 * 2016-05-10 `profile` new value `RAW` for data requiring further edit.
 * 2016-03-21 new fields `enddate` and `enddatetime`.
 * 2016-03-16 `revisions` section.

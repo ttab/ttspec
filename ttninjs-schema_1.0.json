@@ -354,6 +354,55 @@
             "description" : "The name(s) of the creator(s) of the content",
             "type" : "string"
         },
+        "bylines": {
+            "description": "Holder of one or more byline objects.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "byline": {
+                        "type": "string",
+                        "description": "When the complete byline is sent as one string. Same as byline on root level. Example: Albert Jonsson/SvD/TT"
+                    },
+                    "firstname": {
+                        "type": "string",
+                        "description": "When byline is divided, holds the first name of the person. Example: Albert"
+                    },
+                    "lastname": {
+                        "type": "string",
+                        "description": "When byline is divided, holds the last name of the person. Example: Jonsson"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Role of the person in the byline in relation to this ttninjs item, as string. Example: Photographer"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Email address of the person in this byline. albert.jonsson@acme.com"
+                    },
+                    "jobtitle": {
+                        "type": "string",
+                        "description": "Jobtitle can differ from role and is normally more connected to the person and not to the combination person-newsItem. Example: Editor in Chief"
+                    },
+                    "internal": {
+                        "type": "boolean",
+                        "description": "Whether byline is for internal purposes. Example: true"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "Phone number of the person in this byline. Example: +46555123456"
+                    },
+                    "initials": {
+                        "type": "string",
+                        "description": "Initials of byline. Mainly used for records marked as internal. Example: mag"
+                    },
+                    "affiliation": {
+                        "type": "string",
+                        "description": "The affiliation of the person. Example: SvD/TT"
+                    }
+                }
+            }
+        },
         "headline" : {
             "description" : "A brief and snappy introduction to the content, designed to catch the reader's attention",
             "type" : "string"
