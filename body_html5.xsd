@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+  vc:minVersion="1.1">
+  <!-- Schema for the TT usage of HTML5 inside TTNINJS or TTNEWSML. -->
+
+
+  <!-- The root element of the HTML5 part is html. 
+    It will be found inside the body_html5-field in the TTNINJS (json) version or 
+    inside the newsItem/contentSet/inlineXML-part of the TTNEWSML (xml) version. -->
+  
+  <!-- History:
+  2016-08-11 JL updated after meeting with TT architect group.
+  2016-08-15 JL updated with things used especially for sports results.
+  2016-09-01 JL lade till data-filenamebase som attribut i img
+  -->
+  
+  <!-- Root element is html -->
+  <xs:element name="html">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="head" minOccurs="0" maxOccurs="1">  <!-- The head is made optional as of 2016-08-11 and should not be included in instances. -->
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" type="xs:string" minOccurs="0" maxOccurs="1"/> <!-- The head has only a title element wich is optional as of 20160811 and should not be included. Metadata exist in the TTNINJS or TTNEWSML structure.  -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="article" type="articleType" maxOccurs="unbounded"/> <!-- The body will have one or more articles -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <!-- Each article have one or more section and/or asides. They both use the sectionContentType -->
+  <xs:complexType name="articleType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="section" type="sectionContentType"/>
+      <xs:element name="aside" type="sectionContentType"/>
+    </xs:choice>
+  </xs:complexType>
+  
+  
+  <!-- sectionContent is used both for section and aside -->  
+  <xs:complexType name="sectionContentType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="h1" type="h_withClassType" minOccurs="0" maxOccurs="unbounded"></xs:element> <!-- headline, not mandatory,  -->
+      <xs:element name="div" type="divType" minOccurs="0" maxOccurs="unbounded"> <!-- Several type of divs can exist in the section/aside. Depending on the class attribute value different models are used. -->
+        <xs:alternative test="@class = 'dat'" type="datType"></xs:alternative>
+        <xs:alternative test="@class = 'bodytext'" type="bodytextType"></xs:alternative>
+        <xs:alternative test="@class = 'byline'" type="bylineType"></xs:alternative>
+        <xs:alternative test="@class = 'result-epa'" type="epaType"></xs:alternative>
+        <xs:alternative test="@class = 'result-tab'" type="tabType"></xs:alternative>
+        <xs:alternative test="@class = 'result'" type="resultType"></xs:alternative>
+      </xs:element>
+      <xs:element name="h4" type="ingressType" minOccurs="0"/>                             <!-- h4 indicates the leading paragraph(s) even if it's not exactly intended in html5 to have structure inside h4 -->
+      <xs:element name="figure" type="imageType" minOccurs="0" maxOccurs="unbounded"/>  <!-- Each img is named a figure -->
+      <xs:element name="footer" type="footerType"/>  <!-- First usage is for tv-related stuff where this shows what channel and day and time the program is aired -->
+    </xs:choice>
+    <!-- Attributes in section/aside -->
+    <xs:attribute name="data-charcount" type="xs:integer" use="optional"/>  <!-- Number of characters in this section/aside -->
+    <xs:attribute name="class" type="section_classes" use="optional"/>  <!-- class of this section/aside -->
+  </xs:complexType>
+  
+  <!-- Base div-type that the other div-variants inherit from. The base only have a class attribute. -->
+  <xs:complexType name="divType">
+    <xs:attribute name="class" type="div_classes" use="optional"/>  <!-- class of the container using this body text -->
+  </xs:complexType>
+  
+  <!-- Dateline div-type -->
+  <xs:complexType name="datType"> 
+    <xs:complexContent>
+      <xs:extension base="divType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="span" type="stringWithDatClassType"/> <!-- span is used for the vignette and source in the date-line -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+  
+  <!-- bodytext is used by several other types -->
+  <xs:complexType name="bodytextType"> 
+    <xs:complexContent>
+      <xs:extension base="divType"><!-- based on the divType -->
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="p" type="inlineContentType"/><!-- used for regular paragraphs -->
+          <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
+          <xs:element name="h2" type="stringWithClassType"/>  <!-- subheadline that can be inserted in the body text -->
+          <xs:element name="h3" type="stringWithClassType"/>  <!-- Not in use but here for future usage -->
+          <xs:element name="h5" type="stringWithClassType"/>  <!-- subheadline that is a direct question -->
+          <xs:element name="ul" type="listType"/>        <!-- bulleted list in body text -->
+          <xs:element name="table" type="tableType"/>   <!-- table in body text -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+  
+  <!-- Byline div-type -->
+  <xs:complexType name="bylineType" mixed="true"> 
+    <xs:complexContent mixed="true">
+      <xs:extension base="divType">
+        <xs:sequence></xs:sequence>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+  
+  <!-- epa (matchfacts) div-type -->
+  <xs:complexType name="epaType"> 
+    <xs:complexContent>
+      <xs:extension base="divType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="span" type="stringWithEpaClassType"/> <!-- epa (matcfacts) is built by spans -->
+          <xs:element name="p" type="stringWithEpaClassType"/> <!-- epa (matcfacts) can also have p -->
+          <xs:element name="div" type="localDivType"/> <!-- epa (matcfacts) can also have div -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+  
+  <!-- Result div-type -->
+  <xs:complexType name="resultType"> 
+    <xs:complexContent>
+      <xs:extension base="divType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="h2" type="stringWithClassType"/>  <!-- Results can have a h2 for subheadline  -->
+          <xs:element name="p" type="stringWithClassType"/> <!-- Results can have p for content -->
+          <xs:element name="div" type="localDivType"/> <!-- Results can also have divs for content -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+
+  <!-- Tabinfo div-type -->
+  <xs:complexType name="localDivType"> 
+    <xs:complexContent>
+      <xs:extension base="divType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="p" type="stringWithClassType"/> <!--  -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+  
+  <!-- table div-type -->
+  <xs:complexType name="tabType"> 
+    <xs:complexContent>
+      <xs:extension base="divType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="table" type="tableType"/> <!--  -->
+          <xs:element name="div" type="localDivType"/> <!--  -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+
+  <!-- p's in bodytext can contain inline markup which is defined here -->
+  <xs:complexType name="inlineContentType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="br" type="xs:string" fixed=""/>  <!-- a br should always be empty -->
+      <xs:element name="strong" type="xs:string"/>  <!--  -->
+      <xs:element name="emp" type="xs:string"/>  <!--  -->
+    </xs:choice>
+    <xs:attribute name="class" type="string_classes" use="optional"/>
+  </xs:complexType>
+
+  <!-- ingress is the lead part of the article and can hold p and/or blockquotes -->
+  <xs:complexType name="ingressType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="p" type="inlineContentType"/>  <!-- used for regular paragraphs -->
+      <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- ul is a list holding one or many li-elements -->
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element name="li" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Generic construction for elements that hold text and have an optional class attribute -->
+  <xs:complexType name="stringWithClassType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="class" type="string_classes" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!-- used for the span element which have other class-values -->
+  <xs:complexType name="stringWithDatClassType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="class" type="dat_classes" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- used for the span element in matchfacts(epa) which have other class-values -->
+  <xs:complexType name="stringWithEpaClassType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="class" type="epa_classes" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- used for the hX-elements which have other class-values -->
+  <xs:complexType name="h_withClassType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="class" type="h_classes" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!-- table   -->
+  <xs:complexType name="tableType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="caption" type="stringWithClassType"/>  <!-- used for subheadlines inside the table -->
+      <xs:element name="thead" type="tbodyType"/> <!-- For some tables the thead is used -->
+      <xs:element name="tbody" type="tbodyType"/> <!-- For some tables the tbody is used -->
+      <xs:element name="tr" type="trType"/>   <!-- Some tables only have tr -->
+    </xs:choice>
+    <xs:attribute name="class" type="table_classes" use="optional"></xs:attribute>
+  </xs:complexType>
+
+  <!-- Used by both thead and tbody -->
+  <xs:complexType name="tbodyType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="tr" type="trType"/>
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- table row with either td's or th's -->
+  <xs:complexType name="trType">
+    <xs:sequence>
+      <xs:element name="td" type="tdType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="th" type="tdType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="class" type="tr_classes" use="optional"/>
+  </xs:complexType>
+  
+  <!-- tdType is used for both th and td elements. Can have a class and/or colspan. -->
+  <xs:complexType name="tdType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="class" type="td_classes" use="optional"/>
+        <xs:attribute name="colspan" type="xs:integer" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Module for en individual img -->
+  <xs:complexType name="imageType">
+    <xs:all>
+      <xs:element name="img">
+        <xs:complexType>
+          <xs:attribute name="src" type="xs:string" use="optional"/>
+          <xs:attribute name="alt" type="xs:string" use="optional"/>
+          <xs:attribute name="data-assoc-ref" type="xs:string" use="optional"/>
+          <xs:attribute name="data-preview-src" type="xs:string" use="optional"/>
+          <xs:attribute name="data-uri" type="xs:string" use="optional"/>
+          <xs:attribute name="data-filenamebase" type="xs:string" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="div" type="bylineType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="figcaption" type="xs:string" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+  
+  <!-- footer is added to hold broadcast information for articles about tv-programs -->
+  <xs:complexType name="footerType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="p" type="stringWithClassType"/>  <!-- used for regular paragraphs -->
+    </xs:choice>
+    <xs:attribute name="class" type="footer_classes" use="required"></xs:attribute>
+  </xs:complexType>
+  
+  
+  <!-- Value lists for various elements -->
+  
+  
+  <xs:simpleType name="classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dat"/>
+      <xs:enumeration value="bodytext"/>
+      <xs:enumeration value="byline"/>
+      <xs:enumeration value="quotes"/>
+      <xs:enumeration value="facts"/>
+      <xs:enumeration value="notes"/>
+      <xs:enumeration value="broadcastinfo"/>
+      <xs:enumeration value="question"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="footer_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="broadcastinfo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="string_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="question"/>
+      <xs:enumeration value="result-vad"/>
+      <xs:enumeration value="tabrub"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="epa_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="result-hlag"/>
+      <xs:enumeration value="result-blag"/>
+      <xs:enumeration value="result-hres"/>
+      <xs:enumeration value="result-bres"/>
+      <xs:enumeration value="result-epa-period"/>
+      <xs:enumeration value="result-epa-vad"/>
+      <xs:enumeration value="result-epa-var"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="h_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sport-discipline"/>
+      <xs:enumeration value="sport-what"/>
+      <xs:enumeration value="sport-location"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="div_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dat"/>
+      <xs:enumeration value="bodytext"/>
+      <xs:enumeration value="byline"/>
+      <xs:enumeration value="result-epa"/>
+      <xs:enumeration value="result-tab"/>
+      <xs:enumeration value="result"/>
+      <xs:enumeration value="result-txt"/>
+      <xs:enumeration value="result-epa-fakta"/>
+      <xs:enumeration value="tabinfo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="section_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="quotes"/>
+      <xs:enumeration value="facts"/>
+      <xs:enumeration value="notes"/>
+      <xs:enumeration value="sport"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Attribute values used only in the dat element, class attribute -->
+  <xs:simpleType name="dat_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="vignette"/>
+      <xs:enumeration value="source"/>
+      <xs:enumeration value="loc"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Attribute values used only in the table element, class attribute -->
+  <xs:simpleType name="table_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="serietab"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- values for class attribute in tr elements -->
+  <xs:simpleType name="tr_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="splinje"/>
+      <xs:enumeration value="sphr"/>
+    </xs:restriction>
+  </xs:simpleType>
+ 
+  <!-- values for class attribute in td elements -->
+  <xs:simpleType name="td_classes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lag"/>
+      <xs:enumeration value="sm"/>
+      <xs:enumeration value="vm"/>
+      <xs:enumeration value="om"/>
+      <xs:enumeration value="fm"/>
+      <xs:enumeration value="gm"/>
+      <xs:enumeration value="im"/>
+      <xs:enumeration value="pt"/>
+      <xs:enumeration value="hv"/>
+      <xs:enumeration value="ho"/>
+      <xs:enumeration value="hf"/>
+      <xs:enumeration value="hg"/>
+      <xs:enumeration value="hi"/>
+      <xs:enumeration value="bv"/>
+      <xs:enumeration value="bo"/>
+      <xs:enumeration value="bf"/>
+      <xs:enumeration value="bg"/>
+      <xs:enumeration value="bi"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
