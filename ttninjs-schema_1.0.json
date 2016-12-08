@@ -22,9 +22,9 @@
             "type" : "string"
         },
         "representationtype" : {
-            "description" : "Indicates how complete this representation of a news item is",
+            "description" : "Indicates how complete this representation of a news item is. $$TT: associated is a TT-extension used when the news item appears as an association considered as a link without renditions.",
             "type" : "string",
-            "enum" : ["complete", "incomplete"]
+            "enum" : ["complete", "incomplete", "associated"]
         },
         "profile" : {
             "description" : "An identifier for the kind of content of this news object. $$TT: Possible values are PUBL, DATA, INFO or RAW. PUBL is a news item that can be published. DATA is data such as tables and figures (that are not meant to be edited). INFO is for information purposes only (not to be published). RAW is raw data, such as unedited videos, that is meant to be further edited before publishing.",
