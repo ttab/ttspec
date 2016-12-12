@@ -6,6 +6,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2016-12-08 `representationtype` extended with value `associated`.
 * 2016-08-16 `sector` fields to communicate INR, UTR, EKO, KLT or SPT.
 * 2016-08-16 new field `bylines` to represent more than one person involved with item.
 * 2016-05-10 `profile` new value `RAW` for data requiring further edit.
