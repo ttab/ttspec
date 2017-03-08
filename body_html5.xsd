@@ -13,6 +13,7 @@
   2016-08-11 JL updated after meeting with TT architect group.
   2016-08-15 JL updated with things used especially for sports results.
   2016-09-01 JL lade till data-filenamebase som attribut i img
+  2017-03-08 JL lade till a med href i inlineContentType 
   -->
   
   <!-- Root element is html -->
@@ -162,6 +163,7 @@
   <!-- p's in bodytext can contain inline markup which is defined here -->
   <xs:complexType name="inlineContentType" mixed="true">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="a" type="ahrefType"/>
       <xs:element name="br" type="xs:string" fixed=""/>  <!-- a br should always be empty -->
       <xs:element name="strong" type="xs:string"/>  <!--  -->
       <xs:element name="emp" type="xs:string"/>  <!--  -->
@@ -175,6 +177,14 @@
       <xs:element name="p" type="inlineContentType"/>  <!-- used for regular paragraphs -->
       <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
     </xs:choice>
+  </xs:complexType>
+  
+  <xs:complexType name="ahrefType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="href" type="xs:string"></xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
   </xs:complexType>
   
   <!-- ul is a list holding one or many li-elements -->
