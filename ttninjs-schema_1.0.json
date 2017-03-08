@@ -75,9 +75,8 @@
             "type" : "string"
         },
         "job" : {
-            "description": "$$TT: Identifier of a grouping job this item belongs to. Typically the URI of a planning post.",
-            "type" : "string",
-            "format" : "uri"
+            "description": "$$TT: Identifier of a grouping job this item belongs to. Typically the id of the job the article belong to, normally something like 327890.",
+            "type" : "string"
         },
         "pubstatus" : {
             "description" : "The publishing status of the news object, its value is *usable* by default.",
