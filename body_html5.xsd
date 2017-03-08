@@ -13,7 +13,7 @@
   2016-08-11 JL updated after meeting with TT architect group.
   2016-08-15 JL updated with things used especially for sports results.
   2016-09-01 JL lade till data-filenamebase som attribut i img
-  2017-03-08 JL lade till a med href i inlineContentType
+  2017-03-08 JL lade till a med href i inlineContentType 
   -->
   
   <!-- Root element is html -->
@@ -182,7 +182,7 @@
   <xs:complexType name="ahrefType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
-        <xs:attribute name="href" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="href" type="xs:string"></xs:attribute>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
