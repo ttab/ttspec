@@ -13,9 +13,9 @@
             "required" : true
         },
         "type" : {
-            "description" : "The generic news type of this news object",
+            "description" : "The generic news type of this news object. TT-added:'component'",
             "type" : "string",
-            "enum" : ["text", "audio", "video", "picture", "graphic", "composite", "planning"]
+            "enum" : ["text", "audio", "video", "picture", "graphic", "composite", "planning", "component"]
         },
         "mimetype" : {
             "description" : "A MIME type which applies to this news object",
