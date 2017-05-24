@@ -7,6 +7,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2017-05-24 Added type 'component'
 * 2017-03-05 Changed `job` from uri to string
 * 2016-12-08 `representationtype` extended with value `associated`.
 * 2016-08-16 `sector` fields to communicate INR, UTR, EKO, KLT or SPT.
