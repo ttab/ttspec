@@ -13,7 +13,7 @@
             "required" : true
         },
         "type" : {
-            "description" : "The generic news type of this news object. TT-added:'component'",
+            "description" : "The generic news type of this news object. $$TT: TT added 'component' for items with, for example, embed codes for toolbox deliveries.",
             "type" : "string",
             "enum" : ["text", "audio", "video", "picture", "graphic", "composite", "planning", "component"]
         },
@@ -79,7 +79,7 @@
             "type" : "string"
         },
         "pubstatus" : {
-            "description" : "The publishing status of the news object, its value is *usable* by default.",
+            "description" : "The publishing status of the news object, its value is *usable* by default. $$TT: replaced and comissioned added by TT.",
             "type" : "string",
             "enum" : ["usable", "withheld", "canceled", "replaced", "commissioned"]
         },
@@ -124,7 +124,11 @@
             "type": "string"
         },
         "body_html5" : {
-            "description" : "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL.",
+            "description" : "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL or DATA.",
+            "type": "string"
+        },
+        "body_sportsml" : {
+            "description" : "$$TT: When the news object is some form of sportsresults, table etc the data is delivered as sportsml. Only present if type is PUBL or DATA.",
             "type": "string"
         },
         "commissionedby": {
