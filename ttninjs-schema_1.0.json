@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-03/schema#",
-    "id" : "http://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#",
+    "id" : "https://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#",
     "type" : "object",
     "title" : "TT variant of IPTC ninjs - News in JSON - version 1.0",
     "description" : "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.0.json -- (c) Copyright 2015 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/",
