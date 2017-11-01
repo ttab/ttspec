@@ -16,7 +16,7 @@
 // Hidef is used for HD video 1080p.
 //
 
-var VARIANT = ['Normal', 'Watermark', 'BlackAndWhite', 'Cropped', 'Framegrab'];
+var VARIANT = ['Normal', 'Watermark', 'BlackAndWhite', 'Cropped', 'Framegrab', 'Web'];
 var USAGE =   ['Thumbnail', 'Preview', 'Hires', 'Hidef', 'Lores'];
 
 module.exports = {
