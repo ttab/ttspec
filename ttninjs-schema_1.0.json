@@ -140,35 +140,35 @@
             "type" : "object",
             "additionalProperties" : false,
             "properties" : {
-                "arena" : {"description" : "$$TT: Name of the arena where the event will take place.", "type" : "string"},          
-                "city" : {"description" : "$$TT: Name of the city where the event will take place.", "type" : "string"},          
-                "address" : {"description" : "$$TT: Address to the place where the event will take place.", "type" : "string"},          
-                "country" : {"description" : "$$TT: Three letter code for the country where the event will take place.", "type" : "string"},          
-                "eventurl" : {"description" : "$$TT: URL to a web site with information about the event.", "type" : "string"},          
-                "eventphone" : {"description" : "$$TT: Phone number to call for more information about the event.", "type" : "string"},          
-                "eventweb" : {"description" : "$$TT: Details on following the event online", "type" : "string"},          
-                "organizer" : {"description" : "$$TT: Name of the organizer of the event", "type" : "string"},          
-                "organizerurl" : {"description" : "$$TT: URL to a web page for the organizer", "type" : "string"},          
-                "organizerphone" : {"description" : "$$TT: Phone number to the organizer of the event.", "type" : "string"},          
-                "organizermail" : {"description" : "$$TT: Mail address to the organizer of the event.", "type" : "string"},          
-                "eventstatus" : {"description" : "$$TT: Status code for the event.", "type" : "string"},          
-                "eventstatus_text" : {"description" : "$$TT: Status for the event as a phrase.", "type" : "string"},          
-                "region" : {"description" : "$$TT: For events in Sweden, the code of the region.", "type" : "string"},          
-                "region_text" : {"description" : "$$TT: For events in Sweden, the name of the region.", "type" : "string"},          
-                "municipality" : {"description" : "$$TT: For events in Sweden, the code of the municipality.", "type" : "string"},          
-                "municipality_text" : {"description" : "$$TT: For events in Sweden the name of the municipality.", "type" : "string"},          
-                "eventtags" : {"description" : "$$TT: Tags of the event.", "type" : "string"},          
-                "eventtype" : {"description" : "$$TT: Code for type of event.", "type" : "string"},          
-                "eventtype_text" : {"description" : "$$TT: Type of event as text.", "type" : "string"},          
-                "note_extra" : {"description" : "$$TT: Extra information about the event.", "type" : "string"},          
-                "note_pm" : {"description" : "$$TT: Text intended to be used by TT on planning lists of upcoming events.", "type" : "string"},          
-                "accreditation" : {"description" : "$$TT: Information about how to get accreditation to the event.", "type" : "string"},          
-                "extraurl" : {"description" : "$$TT: If there are more information concerning the event.", "type" : "string"},          
-                "createddate" : {"description" : "$$TT: When the item was created in the TT event database.", "type" : "string", "format":"date-time"},          
-                "createdby" : {"description" : "$$TT: Initials of the person creating the item in the TT event database.", "type" : "string"},          
-                "changeddate" : {"description" : "$$TT: When the item was last updated in the TT event database.", "type" : "string", "format":"date-time"},          
-                "changedby" : {"description" : "$$TT: Initials of the person doing the last update to the item.", "type" : "string"},          
-                "courtcasenumber" : {"description" : "$$TT: If the event is a trial this property hold the casenumber.", "type" : "string"}          
+                "arena" : {"description" : "$$TT: Name of the arena where the event will take place.", "type" : "string"},
+                "city" : {"description" : "$$TT: Name of the city where the event will take place.", "type" : "string"},
+                "address" : {"description" : "$$TT: Address to the place where the event will take place.", "type" : "string"},
+                "country" : {"description" : "$$TT: Three letter code for the country where the event will take place.", "type" : "string"},
+                "eventurl" : {"description" : "$$TT: URL to a web site with information about the event.", "type" : "string"},
+                "eventphone" : {"description" : "$$TT: Phone number to call for more information about the event.", "type" : "string"},
+                "eventweb" : {"description" : "$$TT: Details on following the event online", "type" : "string"},
+                "organizer" : {"description" : "$$TT: Name of the organizer of the event", "type" : "string"},
+                "organizerurl" : {"description" : "$$TT: URL to a web page for the organizer", "type" : "string"},
+                "organizerphone" : {"description" : "$$TT: Phone number to the organizer of the event.", "type" : "string"},
+                "organizermail" : {"description" : "$$TT: Mail address to the organizer of the event.", "type" : "string"},
+                "eventstatus" : {"description" : "$$TT: Status code for the event.", "type" : "string"},
+                "eventstatus_text" : {"description" : "$$TT: Status for the event as a phrase.", "type" : "string"},
+                "region" : {"description" : "$$TT: For events in Sweden, the code of the region.", "type" : "string"},
+                "region_text" : {"description" : "$$TT: For events in Sweden, the name of the region.", "type" : "string"},
+                "municipality" : {"description" : "$$TT: For events in Sweden, the code of the municipality.", "type" : "string"},
+                "municipality_text" : {"description" : "$$TT: For events in Sweden the name of the municipality.", "type" : "string"},
+                "eventtags" : {"description" : "$$TT: Tags of the event.", "type" : "string"},
+                "eventtype" : {"description" : "$$TT: Code for type of event.", "type" : "string"},
+                "eventtype_text" : {"description" : "$$TT: Type of event as text.", "type" : "string"},
+                "note_extra" : {"description" : "$$TT: Extra information about the event.", "type" : "string"},
+                "note_pm" : {"description" : "$$TT: Text intended to be used by TT on planning lists of upcoming events.", "type" : "string"},
+                "accreditation" : {"description" : "$$TT: Information about how to get accreditation to the event.", "type" : "string"},
+                "extraurl" : {"description" : "$$TT: If there are more information concerning the event.", "type" : "string"},
+                "createddate" : {"description" : "$$TT: When the item was created in the TT event database.", "type" : "string", "format":"date-time"},
+                "createdby" : {"description" : "$$TT: Initials of the person creating the item in the TT event database.", "type" : "string"},
+                "changeddate" : {"description" : "$$TT: When the item was last updated in the TT event database.", "type" : "string", "format":"date-time"},
+                "changedby" : {"description" : "$$TT: Initials of the person doing the last update to the item.", "type" : "string"},
+                "courtcasenumber" : {"description" : "$$TT: If the event is a trial this property hold the casenumber.", "type" : "string"}
             }
         },
         "body_sportsml" : {
@@ -221,8 +221,8 @@
                 "multipagecount" : {"description" : "$$TT: Number of pages in this delivery.", "type" : "number"},
                 "paginae" : {"description" : "$$TT: Array of pagenumbers for the pages in this delivery. (A pagenumber can also be a letter.)", "type" : "array", "items" : {"type" : "string"}},
                 "pagecode" : {"description" : "$$TT: Code for this page product", "type" : "string"},
-                "pagevariant" : {"description" : "$$TT: Variant of this page product", "type" : "string"}  
-            } 
+                "pagevariant" : {"description" : "$$TT: Variant of this page product", "type" : "string"}
+            }
         },
         "product" : {
             "description" : "$$TT: TT Product classification codes. See http://tt.se/spec/product/1.0",
@@ -554,6 +554,10 @@
                         "format" : {
                             "description" : "$$TT: Suggested by AP, so probably in the official ninjs schema at the next update.",
                             "type" : "string"
+                        },
+                        "printsize" : {
+                            "description" : "Calculated size of a 300 dpi upsampled image",
+                            "type" : "number"
                         }
                     }
                 }
