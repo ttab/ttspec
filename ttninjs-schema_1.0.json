@@ -1,16 +1,16 @@
 {
-    "$schema": "http://json-schema.org/draft-03/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "id" : "http://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#",
     "type" : "object",
     "title" : "TT variant of IPTC ninjs - News in JSON - version 1.0",
     "description" : "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.0.json -- (c) Copyright 2015 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/",
     "additionalProperties" : false,
+    "required": [ "uri" ],
     "properties" : {
         "uri" : {
             "description" : "The identifier for this news object",
             "type" : "string",
-            "format" : "uri",
-            "required" : true
+            "format" : "uri"
         },
         "type" : {
             "description" : "The generic news type of this news object. $$TT: TT added 'component' for items with, for example, embed codes for toolbox deliveries. TT also added event for items with data describing a coming event.",
@@ -593,22 +593,20 @@
             "items": {
                 "type": "object",
                 "additionalProperties" : true,
+                "required": [ "uri" ],
                 "properties" : {
                     "uri" : {
                         "description" : "$$TT: The identifier of the previous revision.",
                         "type" : "string",
-                        "format" : "uri",
-                        "required" : true
+                        "format" : "uri"
                     },
                     "slug" : {
                         "description" : "$$TT: Short name given to article while in production.",
-                        "type": "string",
-                        "required" : false
+                        "type": "string"
                     },
                     "replacing" : {
                         "description" : "$$TT: Array of identifiers this revision is replacing.",
                         "type" : "array",
-                        "required" : false,
                         "items" : {
                             "type": "string",
                             "format" : "uri"
