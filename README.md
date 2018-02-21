@@ -7,6 +7,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2018-02-21 Spec upgraded to conform to json-schema draft-04
 * 2017-09-05 Additions and updates to support pages and calendar items
 * 2017-05-24 Added type 'component'
 * 2017-03-05 Changed `job` from uri to string
