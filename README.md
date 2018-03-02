@@ -7,6 +7,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2018-03-02 Id is now based on https:// rather than http://
 * 2018-02-21 Spec upgraded to conform to json-schema draft-04
 * 2017-09-05 Additions and updates to support pages and calendar items
 * 2017-05-24 Added type 'component'
