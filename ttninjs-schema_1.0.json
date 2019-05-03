@@ -104,7 +104,7 @@
             "type" : "number"
         },
         "webprio" : {
-            "description" : "$TT: TT managed editorial sort order. Priority numbers range from 1 (most important) to 4 (least). Definitions and sort logic are defined here http://tt.se/spec/webprio/1.0",
+            "description" : "$TT: TT managed editorial sort order. Priority numbers range from 1 (most important) to 3 (least). A 0 indicates that the item needs manual attention before publishning. Definitions and sort logic are defined here http://tt.se/spec/webprio/1.0",
             "type" : "number"
         },
         "source": {
