@@ -582,7 +582,7 @@
             "additionalProperties" : false,
             "patternProperties" : {
                 "^[a-zA-Z0-9]+" :  {
-                    "$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#"
+                    "$ref": "#"
                 }
 
             }
