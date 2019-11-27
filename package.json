@@ -3,6 +3,9 @@
   "version": "1.9.0",
   "description": "TT Specifications",
   "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "json2ts ttninjs-schema_1.0.json ttninjs.ts"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ttab/ttspec.git"
@@ -10,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/ttab/ttspec/issues"
   },
-  "homepage": "https://github.com/ttab/ttspec"
+  "homepage": "https://github.com/ttab/ttspec",
+  "devDependencies": {
+    "json-schema-to-typescript": "^7.1.0"
+  }
 }

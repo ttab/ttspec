@@ -12,5 +12,5 @@ indent_style = space
 
 indent_size = 4
 
-[*.rb]
+[package.json]
 indent_size = 2
