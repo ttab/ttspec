@@ -7,6 +7,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2019-11-29 Version 1.1 published.
 * 2019-05-03 Clarified `webprio`
 * 2018-03-02 Id is now based on https:// rather than http://
 * 2018-02-21 Spec upgraded to conform to json-schema draft-04

@@ -1,14 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "https://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#",
+    "id": "https://tt.se/spec/ttninjs/ttninjs-schema_1.1.json#",
     "type": "object",
-    "title": "TT variant of IPTC ninjs - News in JSON - version 1.0",
-    "description": "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.0.json -- (c) Copyright 2015 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/",
+    "title": "TT variant of IPTC ninjs - News in JSON - version 1.1",
+    "description": "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.1.json -- (c) Copyright 2015 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/.  Updated 20190904 by JL with new things for events and planning.",
     "additionalProperties": false,
     "required": ["uri"],
     "properties": {
         "uri": {
-            "description": "The identifier for this news object",
+            "description": "The identifier for this object",
             "type": "string",
             "format": "uri"
         },
@@ -28,7 +28,7 @@
             ]
         },
         "mimetype": {
-            "description": "A MIME type which applies to this news object",
+            "description": "A MIME type which applies to this object",
             "type": "string"
         },
         "representationtype": {
@@ -51,26 +51,30 @@
             ]
         },
         "version": {
-            "description": "The version of the news object which is identified by the uri property",
+            "description": "The version of the object which is identified by the uri property",
             "type": "string"
         },
         "versioncreated": {
-            "description": "The date and time when this version of the news object was created",
+            "description": "The date and time when this version of the object was created",
             "type": "string",
             "format": "date-time"
         },
         "versionstored": {
-            "description": "$$TT: The date and time when this version of the news object was persisted. For a photo, versioncreated is when photo was taken, versionstored is when we indexed it to the database.",
+            "description": "$$TT: The date and time when this version of the object was persisted. For a photo, versioncreated is when photo was taken, versionstored is when we indexed it to the database.",
             "type": "string",
             "format": "date-time"
         },
         "embargoed": {
-            "description": "The date and time before which all versions of the news object are embargoed. If absent, this object is not embargoed.",
+            "description": "The date and time before which all versions of the object are embargoed. If absent, this object is not embargoed.",
             "type": "string",
             "format": "date-time"
         },
+        "embargoedreason": {
+            "description": "$$TT: Textual description of why article is embargoed.",
+            "type": "string"
+        },
         "date": {
-            "description": "$$TT Used for items that concern a specific date such as planning posts. Notice that this holds date only, no time. See also datetime.",
+            "description": "$$TT Used for items that concern a specific date such as events and planning items. Notice that this holds date only, no time. See also datetime.",
             "type": "string",
             "format": "date"
         },
@@ -80,7 +84,7 @@
             "format": "date-time"
         },
         "enddate": {
-            "description": "$$TT Used for items that concern a specific date such as planning posts and has a specific enddate. Notice that this holds date only, no time. See also enddatetime.",
+            "description": "$$TT Used for items that concern a specific date such as events and planning items and has a specific enddate. Notice that this holds date only, no time. See also enddatetime.",
             "type": "string",
             "format": "date"
         },
@@ -88,10 +92,6 @@
             "description": "$$TT For items that concern a specific enddate and time. See also enddate.",
             "type": "string",
             "format": "date-time"
-        },
-        "embargoedreason": {
-            "description": "$$TT: Textual description of why article is embargoed.",
-            "type": "string"
         },
         "job": {
             "description": "$$TT: Identifier of a grouping job this item belongs to. Typically the id of the job the article belong to, normally something like 327890.",
@@ -121,7 +121,7 @@
             "type": "string"
         },
         "week": {
-            "description": "$$TT: The number of the week the item is planned to be published. Mainly used for feature-articles and ready pages.",
+            "description": "$$TT: The number of the week the item is planned to be published. Mainly used for feature-articles and ready pages. Also showing the week-number of planning and events.",
             "type": "number"
         },
         "urgency": {
@@ -133,7 +133,7 @@
             "type": "number"
         },
         "source": {
-            "description": "$$TT: String identifier for originating source of document.",
+            "description": "$$TT: String identifier for originating source of content.",
             "type": "string"
         },
         "commissioncode": {
@@ -160,8 +160,12 @@
             "description": "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL or DATA.",
             "type": "string"
         },
+        "body_richhtml5": {
+            "description": "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL or DATA. See alternative html5 schemas for details. richhtml5 allow more than the older html5 container",
+            "type": "string"
+        },
         "body_event": {
-            "description": "$$TT: Object with properties containing data from the event database.",
+            "description": "$$TT: Object with properties containing data on upcoming events.",
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -286,7 +290,7 @@
             }
         },
         "body_sportsml": {
-            "description": "$$TT: When the news object is some form of sportsresults, table etc the data is delivered as sportsml. Only present if type is PUBL or DATA.",
+            "description": "$$TT: When the news object is some form of sportsresults, table etc the data is delivered as sportsml. Only present if type is PUBL or DATA. ",
             "type": "string"
         },
         "body_pages": {
@@ -503,7 +507,7 @@
             }
         },
         "subject": {
-            "description": "A concept with a relationship to the content. $$TT: Used for content classification in swedish equivalent of IPTC Subject Reference see http://tt.se/spec/subref/1.0",
+            "description": "A concept with a relationship to the content. $$TT: Used for content classification in swedish equivalent of IPTC Subject Reference see http://tt.se/spec/subref/1.0/ etc",
             "type": "array",
             "items": {
                 "type": "object",
@@ -518,7 +522,7 @@
                         "type": "string"
                     },
                     "scheme": {
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0 http://tt.se/spec/keyword/1.0 ",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.1/ ",
                         "type": "string",
                         "format": "uri"
                     },
@@ -733,7 +737,15 @@
             "type": "object",
             "additionalProperties": false,
             "patternProperties": {
-                "^[a-zA-Z0-9]+": {"$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#"}
+                "^[a-zA-Z0-9]+": {"$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.1.json#"}
+            }
+        },
+        "assignments": {
+            "description": "Individual assignments to produce content connected with one planning item.",
+            "type": "array",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^[a-zA-Z0-9]+": {"$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.1.json#"}
             }
         },
         "revisions": {
@@ -775,6 +787,61 @@
                 "SPT",
                 "PRM"
             ]
+        },
+        "fixture": {
+            "description": "$$TT: A storytag that this item belong to. A sort of grouping name that can be used over time for a running story. Broader than a slugline, narrower than a media topic.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "description": "The name of the storytag",
+                        "type": "string"
+                    },
+                    "rel": {
+                        "description": "The relationship of the content to the fixture",
+                        "type": "string"
+                    },
+                    "scheme": {
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/story/1.1/",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "code": {
+                        "description": "The code for the story in a scheme (= controlled vocabulary) which is identified by the scheme property.",
+                        "type": "string"
+                    }   
+                }
+            }
+     
+        },
+        "advice": {
+            "type": "object",
+            "description": "$$TT: Object with properties with advice to the receiver",
+            "additionalProperties": false,
+            "properties": {
+                    "lifetime": {
+                    "type": "object",
+                    "description": "$$TT: The lifetime is the suggested timeframe when the item is suitable for publication. Either period or enddatetime will be used. ",
+                    "properties": {
+                      "period": {
+                          "type": "string",
+                          "description": "$$TT: Values kan be 'short', which indicates about a day from publication or 'evergreen', which indicates no time-limit."
+                      },
+                      "enddatetime": {
+                          "type": "string",
+                          "description": "$$TT: A specific date+time, in which case the item should not be published again after that time."
+                      }
+                        
+                    },
+                    "oneOf": [
+                        {"required": ["period"]},
+                        {"required": ["enddatetime"]}
+                    ]
+                }
+            }
         }
+
     }
 }
