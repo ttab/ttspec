@@ -2,20 +2,16 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
   vc:minVersion="1.1">
-  <!-- Schema for the TT usage of HTML5 inside TTNINJS or TTNEWSML. -->
+  <!-- Schema for the TT usage of rich HTML5 inside TTNINJS or TTNEWSML. -->
 
 
   <!-- The root element of the HTML5 part is html. 
-    It will be found inside the body_html5-field in the TTNINJS (json) version or 
-    inside the newsItem/contentSet/inlineXML-part with contenttypevariant=html5 of the TTNEWSML (xml) version. -->
+    It will be found inside the body_richhtml5-field in the TTNINJS (json) version or 
+    inside the newsItem/contentSet/inlineXML-part with contenttypevariant=richhtml5 of the TTNEWSML (xml) version. -->
   
   <!-- History:
-  2016-08-11 JL updated after meeting with TT architect group.
-  2016-08-15 JL updated with things used especially for sports results.
-  2016-09-01 JL lade till data-filenamebase som attribut i img
-  2017-03-08 JL lade till a med href i inlineContentType 
-  2019-12-02 JL errata där em hade blivit emp. Justerat
-                Lagt till uri i img.
+  2019-12-02 JL first version published
+  
   -->
   
   <!-- Root element is html -->
@@ -56,13 +52,13 @@
       <xs:element name="h1" type="h_withClassType" minOccurs="0" maxOccurs="unbounded"></xs:element> <!-- headline, not mandatory,  -->
       <xs:element name="div" type="divType" minOccurs="0" maxOccurs="unbounded"> <!-- Several type of divs can exist in the section/aside. Depending on the class attribute value different models are used. -->
         <xs:alternative test="@class = 'dat'" type="datType"></xs:alternative>
+        <xs:alternative test="@class = 'ingress'" type="ingressType"></xs:alternative>
         <xs:alternative test="@class = 'bodytext'" type="bodytextType"></xs:alternative>
         <xs:alternative test="@class = 'byline'" type="bylineType"></xs:alternative>
         <xs:alternative test="@class = 'result-epa'" type="epaType"></xs:alternative>
         <xs:alternative test="@class = 'result-tab'" type="tabType"></xs:alternative>
         <xs:alternative test="@class = 'result'" type="resultType"></xs:alternative>
       </xs:element>
-      <xs:element name="h4" type="ingressType" minOccurs="0"/>                             <!-- h4 indicates the leading paragraph(s) even if it's not exactly intended in html5 to have structure inside h4 -->
       <xs:element name="figure" type="imageType" minOccurs="0" maxOccurs="unbounded"/>  <!-- Each img is named a figure -->
       <xs:element name="footer" type="footerType"/>  <!-- First usage is for tv-related stuff where this shows what channel and day and time the program is aired -->
     </xs:choice>
@@ -98,7 +94,9 @@
           <xs:element name="h3" type="stringWithClassType"/>  <!-- Not in use but here for future usage -->
           <xs:element name="h5" type="stringWithClassType"/>  <!-- subheadline that is a direct question -->
           <xs:element name="ul" type="listType"/>        <!-- bulleted list in body text -->
+          <xs:element name="ol" type="listType"/>        <!-- ordered list in body text -->
           <xs:element name="table" type="tableType"/>   <!-- table in body text -->
+          <xs:element name="figure" type="imageType"/>  <!-- Each img or video is named a figure -->
         </xs:choice>
       </xs:extension>
     </xs:complexContent>    
@@ -175,10 +173,15 @@
 
   <!-- ingress is the lead part of the article and can hold p and/or blockquotes -->
   <xs:complexType name="ingressType">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="p" type="inlineContentType"/>  <!-- used for regular paragraphs -->
-      <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
-    </xs:choice>
+    <xs:complexContent>
+      <xs:extension base="divType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="p" type="inlineContentType"/>  <!-- used for regular paragraphs -->
+          <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
+          <xs:element name="figure" type="imageType"/>  <!-- Each img/video/graphic is named a figure -->
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   
   <xs:complexType name="ahrefType">
@@ -271,8 +274,20 @@
 
   <!-- Module for en individual img -->
   <xs:complexType name="imageType">
-    <xs:all>
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      
       <xs:element name="img">
+        <xs:complexType>
+          <xs:attribute name="uri" type="xs:string" use="optional"/>
+          <xs:attribute name="src" type="xs:string" use="optional"/>
+          <xs:attribute name="alt" type="xs:string" use="optional"/>
+          <xs:attribute name="data-assoc-ref" type="xs:string" use="optional"/>
+          <xs:attribute name="data-preview-src" type="xs:string" use="optional"/>
+          <xs:attribute name="data-uri" type="xs:string" use="optional"/>
+          <xs:attribute name="data-filenamebase" type="xs:string" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="video">
         <xs:complexType>
           <xs:attribute name="uri" type="xs:string" use="optional"/>
           <xs:attribute name="src" type="xs:string" use="optional"/>
@@ -285,7 +300,7 @@
       </xs:element>
       <xs:element name="div" type="bylineType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="figcaption" type="xs:string" minOccurs="0"/>
-    </xs:all>
+    </xs:choice>
   </xs:complexType>
   
   <!-- footer is added to hold broadcast information for articles about tv-programs -->
@@ -350,6 +365,7 @@
   <xs:simpleType name="div_classes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="dat"/>
+      <xs:enumeration value="ingress"/>
       <xs:enumeration value="bodytext"/>
       <xs:enumeration value="byline"/>
       <xs:enumeration value="result-epa"/>
