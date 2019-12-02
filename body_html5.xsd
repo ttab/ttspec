@@ -14,6 +14,8 @@
   2016-08-15 JL updated with things used especially for sports results.
   2016-09-01 JL lade till data-filenamebase som attribut i img
   2017-03-08 JL lade till a med href i inlineContentType 
+  2019-12-02 JL errata där em hade blivit emp. Justerat
+                Lagt till uri i img.
   -->
   
   <!-- Root element is html -->
@@ -166,7 +168,7 @@
       <xs:element name="a" type="ahrefType"/>
       <xs:element name="br" type="xs:string" fixed=""/>  <!-- a br should always be empty -->
       <xs:element name="strong" type="xs:string"/>  <!--  -->
-      <xs:element name="emp" type="xs:string"/>  <!--  -->
+      <xs:element name="em" type="xs:string"/>  <!--  -->
     </xs:choice>
     <xs:attribute name="class" type="string_classes" use="optional"/>
   </xs:complexType>
@@ -272,6 +274,7 @@
     <xs:all>
       <xs:element name="img">
         <xs:complexType>
+          <xs:attribute name="uri" type="xs:string" use="optional"/>
           <xs:attribute name="src" type="xs:string" use="optional"/>
           <xs:attribute name="alt" type="xs:string" use="optional"/>
           <xs:attribute name="data-assoc-ref" type="xs:string" use="optional"/>
