@@ -723,17 +723,20 @@
                 "format": "uri"
             }
         },
-        "replacedby": {
-            "description": "$$TT: The identifier of the news object this one is replaced by.",
-            "type": "string",
-            "format": "uri"
+        "replacedby" : {
+            "description" : "$$TT: The identifier of the news object this one is replaced by.",
+            "type" : "string",
+            "format" : "uri"
         },
-        "associations": {
-            "description": "Content of news objects which are associated with this news object.",
-            "type": "object",
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[a-zA-Z0-9]+": {"$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.0.json#"}
+        "associations" : {
+            "description" : "Content of news objects which are associated with this news object.",
+            "type" : "object",
+            "additionalProperties" : false,
+            "patternProperties" : {
+                "^[a-zA-Z0-9]+" :  {
+                    "$ref": "#"
+                }
+
             }
         },
         "revisions": {
