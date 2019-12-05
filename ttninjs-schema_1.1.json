@@ -737,15 +737,15 @@
             "type": "object",
             "additionalProperties": false,
             "patternProperties": {
-                "^[a-zA-Z0-9]+": {"$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.1.json#"}
+                "^[a-zA-Z0-9]+": {"$ref": "#"}
             }
         },
         "assignments": {
             "description": "Individual assignments to produce content connected with one planning item.",
-            "type": "array",
+            "type": "object",
             "additionalProperties": false,
             "patternProperties": {
-                "^[a-zA-Z0-9]+": {"$ref": "https://tt.se/spec/ttninjs/ttninjs-schema_1.1.json#"}
+                "^[a-zA-Z0-9]+": {"$ref": "#"}
             }
         },
         "revisions": {
@@ -811,10 +811,9 @@
                     "code": {
                         "description": "The code for the story in a scheme (= controlled vocabulary) which is identified by the scheme property.",
                         "type": "string"
-                    }   
+                    }
                 }
             }
-     
         },
         "advice": {
             "type": "object",
@@ -833,7 +832,6 @@
                           "type": "string",
                           "description": "$$TT: A specific date+time, in which case the item should not be published again after that time."
                       }
-                        
                     },
                     "oneOf": [
                         {"required": ["period"]},
