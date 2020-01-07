@@ -16,6 +16,7 @@
   2017-03-08 JL lade till a med href i inlineContentType 
   2019-12-02 JL errata där em hade blivit emp. Justerat
                 Lagt till uri i img.
+  2020-01-07 JL justerat modellen för blockquote
   -->
   
   <!-- Root element is html -->
@@ -93,7 +94,7 @@
       <xs:extension base="divType"><!-- based on the divType -->
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="p" type="inlineContentType"/><!-- used for regular paragraphs -->
-          <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
+          <xs:element name="blockquote" type="inlineContentType"/>  <!-- used for pragraphs with quotations from people -->
           <xs:element name="h2" type="stringWithClassType"/>  <!-- subheadline that can be inserted in the body text -->
           <xs:element name="h3" type="stringWithClassType"/>  <!-- Not in use but here for future usage -->
           <xs:element name="h5" type="stringWithClassType"/>  <!-- subheadline that is a direct question -->
@@ -177,7 +178,7 @@
   <xs:complexType name="ingressType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="p" type="inlineContentType"/>  <!-- used for regular paragraphs -->
-      <xs:element name="blockquote" type="stringWithClassType"/>  <!-- used for pragraphs with quotations from people -->
+      <xs:element name="blockquote" type="inlineContentType"/>  <!-- used for pragraphs with quotations from people -->
     </xs:choice>
   </xs:complexType>
   
