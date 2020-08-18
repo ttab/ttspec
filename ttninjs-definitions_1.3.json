@@ -1,0 +1,11 @@
+{
+  "person": "http://tt.se/spec/person/1.3/",
+  "organisation": "http://tt.se/spec/organisation/1.3/",
+  "place": "http://tt.se/spec/place/1.3/",
+  "subject": "http://tt.se/spec/subref/1.3/",
+  "event": "http://tt.se/spec/event/text/1.3/",
+  "object": "http://tt.se/spec/object/1.3/",
+  "infosource": "http://tt.se/spec/infosource/1.3/",
+  "product": "http://tt.se/spec/product/1.3/",
+  "keyword": "http://tt.se/spec/keyword/1.3/"
+}
