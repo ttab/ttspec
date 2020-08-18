@@ -1,5 +1,6 @@
 export { TTVariantOfIPTCNinjsNewsInJSONVersion10 as TTNinjs10 } from './ttninjs_10'
 export { TTVariantOfIPTCNinjsNewsInJSONVersion11 as TTNinjs11 } from './ttninjs_11'
+export { TTVariantOfIPTCNinjsNewsInJSONVersion13 as TTNinjs13 } from './ttninjs_13'
 
 export enum VARIANT {
     Normal = "Normal",
