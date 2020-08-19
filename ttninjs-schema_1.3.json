@@ -2,12 +2,12 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "https://tt.se/spec/ttninjs/ttninjs-schema_1.3.json#",
     "type": "object",
-    "title": "TT variant of IPTC ninjs - News in JSON - version 1.3",
+    "title": "TT variant of IPTC ninjs - News in JSON - version 1.3.  (Version 1.2 skipped to align with IPTC.)",
     "description": "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.3.json -- (c) Copyright 2020 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/.",
     "additionalProperties": false,
     "required": ["uri"],
     "properties": {
-
+        
         "uri": {
             "title": "Uniform Resource Identifier",
             "description": "The identifier for this object",
@@ -585,7 +585,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.1/ ",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.3/ http://tt.se/spec/keyword/1.3/  http://tt.se/spec/eventtype/1.3/ ",
                         "type": "string",
                         "format": "uri"
                     },
@@ -926,7 +926,7 @@
                         "type": "string"
                     },
                     "href": {
-                        "title": "href",
+                        "title": "href", 
                         "description": "The URL for accessing the trust indicator resource.",
                         "type": "string",
                         "format": "uri"
@@ -957,7 +957,7 @@
                     "description": "The uri of the json schema to use for validation."
                 }
             }
-
+            
         },
         "genre": {
             "title": "Genre",
@@ -971,7 +971,7 @@
                         "title": "Name",
                         "description": "The name of the genre",
                         "type": "string"
-                    },
+                    },      
                     "scheme": {
                         "title": "Scheme",
                         "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the genre. Normally  http://cv.iptc.org/newscodes/genre/",
@@ -1064,11 +1064,11 @@
         },
         "assignments": {
             "title": "Assignments",
-            "description": "Individual assignments to produce content connected with one planning item.",
+            "description": "$$TT: Individual assignments to produce content connected with one planning item.",
             "type": "object",
             "additionalProperties": false,
             "patternProperties": {
-                "^[a-zA-Z0-9]+": {"$ref": "#"}
+                "^[a-zA-Z0-9]+$": {"$ref": "#"}
             }
         },
         "revisions": {
@@ -1136,7 +1136,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/story/1.1/",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/story/1.3/",
                         "type": "string",
                         "format": "uri"
                     },
