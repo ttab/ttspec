@@ -585,7 +585,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.3/ http://tt.se/spec/keyword/1.3/  http://tt.se/spec/eventtype/1.3/ ",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.0/ ",
                         "type": "string",
                         "format": "uri"
                     },
@@ -1136,7 +1136,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/story/1.3/",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/story/1.0/",
                         "type": "string",
                         "format": "uri"
                     },
