@@ -522,7 +522,7 @@
                         "type": "string"
                     },
                     "scheme": {
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.1/ ",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.0/ ",
                         "type": "string",
                         "format": "uri"
                     },
