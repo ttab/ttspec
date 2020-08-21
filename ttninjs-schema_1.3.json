@@ -7,7 +7,6 @@
     "additionalProperties": false,
     "required": ["uri"],
     "properties": {
-        
         "uri": {
             "title": "Uniform Resource Identifier",
             "description": "The identifier for this object",
@@ -469,7 +468,7 @@
                     },
                     "code": {
                         "title": "Code",
-                        "description": "The code for the person in a scheme (= controlled vocabulary) which is identified by the scheme property. $$TT: http://tt.se/spec/person/1.0",
+                        "description": "The code for the person in a scheme (= controlled vocabulary) which is identified by the scheme property. $$TT: http://tt.se/spec/person/1.0/",
                         "type": "string"
                     }
                 }
@@ -548,7 +547,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the place. $$TT: http://tt.se/spec/place/1.0",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the place. $$TT: http://tt.se/spec/place/1.0/",
                         "type": "string",
                         "format": "uri"
                     },
@@ -585,7 +584,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.0/ ",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the subject. $$TT: http://tt.se/spec/subref/1.0/ http://tt.se/spec/keyword/1.0/  http://tt.se/spec/eventtype/1.0/",
                         "type": "string",
                         "format": "uri"
                     },
@@ -926,7 +925,7 @@
                         "type": "string"
                     },
                     "href": {
-                        "title": "href", 
+                        "title": "href",
                         "description": "The URL for accessing the trust indicator resource.",
                         "type": "string",
                         "format": "uri"
@@ -957,7 +956,6 @@
                     "description": "The uri of the json schema to use for validation."
                 }
             }
-            
         },
         "genre": {
             "title": "Genre",
@@ -971,7 +969,7 @@
                         "title": "Name",
                         "description": "The name of the genre",
                         "type": "string"
-                    },      
+                    },
                     "scheme": {
                         "title": "Scheme",
                         "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the genre. Normally  http://cv.iptc.org/newscodes/genre/",
@@ -1022,7 +1020,7 @@
         },
         "product": {
             "title": "Product",
-            "description": "$$TT: TT Product classification codes. See http://tt.se/spec/product/1.0",
+            "description": "$$TT: TT Product classification codes. See http://tt.se/spec/product/1.0/",
             "type": "array",
             "items": {
                 "type": "object",
@@ -1035,7 +1033,7 @@
                     },
                     "scheme": {
                         "title": "Scheme",
-                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the product. http://tt.se/spec/product/1.0",
+                        "description": "The identifier of a scheme (= controlled vocabulary) which includes a code for the product. http://tt.se/spec/product/1.0/",
                         "type": "string",
                         "format": "uri"
                     },
