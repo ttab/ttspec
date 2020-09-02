@@ -559,7 +559,24 @@
                     "geometry_geojson": {
                         "title": "Geometry GeoJSON",
                         "description": "$$TT: An optional GeoJSON description of the place.",
-                        "type": "object"
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "title": "Type",
+                                "description": "What type of coordinates is given. Normally Point.",
+                                "type": "string",
+                                "enum": [
+                                    "Point"
+                                ]
+                            },
+                            "coordinates":{
+                                "title": "Coordinates",
+                                "description": "Array of coordinate pairs, but in our case on pair.",
+                                "type": "array",
+                                "items": {"type": "number" }
+                            }
+                        }
                     }
                 }
             }
