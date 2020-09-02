@@ -7,6 +7,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2020-09-02 Adeed properties for geodata.
 * 2020-08-19 Version 1.3 published. (Version 1.2 skipped intenionally.)
 * 2019-12-02 Typescript definitions added.
 * 2019-11-29 Version 1.1 published.
