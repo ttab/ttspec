@@ -1120,7 +1120,7 @@
         },
         "sector": {
             "title": "Sector",
-            "description": "$$TT: Designator for the 'big 5' ways of grouping content (inrikes, utrikes, etc) and PRM for press releases. Not mandatory, often omitted. DEPRECATED and moved to genre.",
+            "description": "$$TT: Designator for the major ways of grouping content (inrikes, utrikes, etc) and PRM for press releases. Not mandatory, often omitted. DEPRECATED and moved to genre.",
             "type": "string",
             "enum": [
                 "INR",
@@ -1128,6 +1128,8 @@
                 "EKO",
                 "KLT",
                 "SPT",
+                "FEA",
+                "NOJ",
                 "PRM"
             ]
         },
