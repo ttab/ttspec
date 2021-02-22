@@ -2,7 +2,7 @@ export { TTVariantOfIPTCNinjsNewsInJSONVersion10 as TTNinjs10 } from './ttninjs_
 export { TTVariantOfIPTCNinjsNewsInJSONVersion11 as TTNinjs11 } from './ttninjs_11'
 export { TTVariantOfIPTCNinjsNewsInJSONVersion13 as TTNinjs13 } from './ttninjs_13'
 
-export enum VARIANT {
+export const enum Variant {
     Normal = "Normal",
     Watermark = "Watermark",
     BlackAndWhite = "BlackAndWhite",
@@ -10,7 +10,8 @@ export enum VARIANT {
     Framegrab = "Framegrab",
     Web = "Web"
 }
-export enum USAGE {
+
+export const enum Usage {
     Thumbnail = "Thumbnail",
     Preview = "Preview",
     Hires = "Hires",
@@ -18,9 +19,12 @@ export enum USAGE {
     Lores = "Lores"
 }
 
+export const VARIANT: Array<Variant>
+export const USAGE: Array<Usage>
+
 export interface VariantUsage {
-    variant: VARIANT,
-    usage: USAGE
+    variant: Variant,
+    usage: Usage
 }
 
 export function variantUsageForString(str: string): VariantUsage
