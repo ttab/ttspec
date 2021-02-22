@@ -7,9 +7,10 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2021-02-22 Fixed TypeScript definitions for VARIANT & USAGE
 * 2020-09-02 Adeed properties for geodata.
 * 2020-08-19 Version 1.3 published. (Version 1.2 skipped intenionally.)
-* 2019-12-02 Typescript definitions added.
+* 2019-12-02 TypeScript definitions added.
 * 2019-11-29 Version 1.1 published.
 * 2019-05-03 Clarified `webprio`
 * 2018-03-02 Id is now based on https:// rather than http://
