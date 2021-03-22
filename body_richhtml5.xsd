@@ -13,6 +13,7 @@
   2019-12-02 JL first version published
   2020-01-07 JL justerat modellen för blockquote
   2020-03-19 JL lade till konstruktioner för div med embeds
+  2021-03-19 JL förenklade modellen för embeds och tog bort toolbox embed
   
   -->
   
@@ -91,7 +92,6 @@
       <xs:extension base="divType"><!-- based on the divType -->
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="div" type="divType" minOccurs="0" maxOccurs="unbounded">
-            <xs:alternative test="@class = 'tt_toolbox'" type="toolboxType"></xs:alternative>
             <xs:alternative test="@class = 'tt_embed'" type="embedType"></xs:alternative>
           </xs:element>
           <xs:element name="p" type="inlineContentType"/><!-- used for regular paragraphs -->
@@ -108,26 +108,11 @@
     </xs:complexContent>    
   </xs:complexType>
   
-  <!-- Toolbox div-type -->
-  <xs:complexType name="toolboxType"> 
-    <xs:complexContent>
-      <xs:extension base="divType">
-        <xs:sequence>
-          <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-        <xs:attribute name="embedcode" type="xs:string" use="optional"></xs:attribute>
-      </xs:extension>
-    </xs:complexContent>    
-  </xs:complexType>
-
-  <!-- Toolbox div-type -->
   <xs:complexType name="embedType"> 
     <xs:complexContent>
       <xs:extension base="divType">
-        <xs:sequence>
-          <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-        <xs:attribute name="embedcode" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="data-url" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="data-provider" type="xs:string" use="optional"></xs:attribute>
       </xs:extension>
     </xs:complexContent>    
   </xs:complexType>
@@ -207,7 +192,6 @@
       <xs:extension base="divType">
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="div" type="divType" minOccurs="0" maxOccurs="unbounded">
-            <xs:alternative test="@class = 'tt_toolbox'" type="toolboxType"></xs:alternative>
             <xs:alternative test="@class = 'tt_embed'" type="embedType"></xs:alternative>
           </xs:element>
           <xs:element name="p" type="inlineContentType"/>  <!-- used for regular paragraphs -->
