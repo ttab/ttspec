@@ -120,7 +120,7 @@
         },
         "pubstatus": {
             "title": "Publication status",
-            "description": "The publishing status of the news object, its value is *usable* by default. $$TT: replaced and comissioned added by TT.",
+            "description": "The publishing status of the news object, its value is *usable* by default. Please note that for information about events that have been canceled the pubstatus of the ttninjs object will still be usable. The cancel information can be found in body_event. $$TT: replaced and comissioned added by TT.",
             "type": "string",
             "enum": [
                 "usable",
@@ -283,12 +283,12 @@
                 },
                 "eventstatus": {
                     "title": "Event status code",
-                    "description": "$$TT: Status code for the event.",
+                    "description": "$$TT: Status code for the event. Value is normally 1. Canceled events will have 4.",
                     "type": "string"
                 },
                 "eventstatus_text": {
                     "title": "Event status text",
-                    "description": "$$TT: Status for the event as a phrase.",
+                    "description": "$$TT: Status for the event as a phrase. Normally 'Planerat'. Canceled events will have 'Inställt'.",
                     "type": "string"
                 },
                 "region": {
