@@ -7,6 +7,7 @@ Repository of TT specifications.
 ttninjs change history
 ======================
 
+* 2021-04-22 Added "types" declaration to package.json
 * 2021-02-22 Fixed TypeScript definitions for VARIANT & USAGE
 * 2020-09-02 Adeed properties for geodata.
 * 2020-08-19 Version 1.3 published. (Version 1.2 skipped intenionally.)
