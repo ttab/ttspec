@@ -14,7 +14,7 @@
   2020-01-07 JL justerat modellen för blockquote
   2020-03-19 JL lade till konstruktioner för div med embeds
   2021-03-19 JL förenklade modellen för embeds och tog bort toolbox embed
-  
+  2022-03-24 JL lade till result-epa-text  
   -->
   
   <!-- Root element is html -->
@@ -73,6 +73,7 @@
   <!-- Base div-type that the other div-variants inherit from. The base only have a class attribute. -->
   <xs:complexType name="divType">
     <xs:attribute name="class" type="div_classes" use="optional"/>  <!-- class of the container using this body text -->
+    <xs:attribute name="data-event-id" type="xs:string" use="optional"></xs:attribute>
   </xs:complexType>
   
   <!-- Dateline div-type -->
@@ -240,6 +241,8 @@
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="class" type="epa_classes" use="optional"/>
+        <xs:attribute name="data-team-id" type="xs:string" use="optional"/>
+        <xs:attribute name="data-team-outcome" type="xs:string" use="optional"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -249,6 +252,8 @@
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="class" type="h_classes" use="optional"/>
+        <xs:attribute name="data-sport-id" type="xs:string" use="optional"/>
+        <xs:attribute name="data-league-id" type="xs:string" use="optional"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -393,6 +398,7 @@
       <xs:enumeration value="result"/>
       <xs:enumeration value="result-txt"/>
       <xs:enumeration value="result-epa-fakta"/>
+      <xs:enumeration value="result-epa-text"/>
       <xs:enumeration value="tabinfo"/>
     </xs:restriction>
   </xs:simpleType>
