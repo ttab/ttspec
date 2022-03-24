@@ -6,13 +6,16 @@
     "description": "A TT news item as JSON object -- Derived from https://www.iptc.org/std/ninjs/ninjs-schema_1.3.json -- (c) Copyright 2020 TT - TT Nyhetsbyrån - tt.se - This document is published under the Creative Commons Attribution 3.0 license, see  http://creativecommons.org/licenses/by/3.0/.",
     "additionalProperties": false,
     "required": ["uri"],
+    
     "properties": {
-        "uri": {
+    
+       "uri": {
             "title": "Uniform Resource Identifier",
             "description": "The identifier for this object",
             "type": "string",
             "format": "uri"
         },
+        
         "type": {
             "title": "Type",
             "description": "The generic news type of this news object. $$TT: TT  added event for items with data describing a coming event.",
@@ -29,11 +32,13 @@
                 "event"
             ]
         },
+        
         "mimetype": {
             "title": "MIME type",
             "description": "A MIME type which applies to this object",
             "type": "string"
         },
+        
         "representationtype": {
             "title": "Representation type",
             "description": "Indicates how complete this representation of a news item is. $$TT: associated is a TT-extension used when the news item appears as an association considered as a link without renditions.",
@@ -55,69 +60,81 @@
                 "RAW"
             ]
         },
+        
         "version": {
             "title": "Version",
             "description": "The version of the object which is identified by the uri property",
             "type": "string"
         },
+        
         "firstcreated": {
             "title": "First created",
             "description": "Indicates when the first version of the item was created. (Added in version 1.2 from issue #5). nar:firstCreated",
             "type": "string",
             "format": "date-time"
         },
+        
         "versioncreated": {
             "title": "Version created",
             "description": "The date and time when this version of the object was created",
             "type": "string",
             "format": "date-time"
         },
+        
         "versionstored": {
             "title": "Version stored",
             "description": "$$TT: The date and time when this version of the object was persisted. For a photo, versioncreated is when photo was taken, versionstored is when we indexed it to the database.",
             "type": "string",
             "format": "date-time"
         },
+        
         "embargoed": {
             "title": "Embargoed",
             "description": "The date and time before which all versions of the object are embargoed. If absent, this object is not embargoed.",
             "type": "string",
             "format": "date-time"
         },
+        
         "embargoedreason": {
             "title": "Reason for embargo",
             "description": "$$TT: Textual description of why article is embargoed.",
             "type": "string"
         },
+        
         "date": {
             "title": "Date",
             "description": "$$TT Used for items that concern a specific date such as events and planning items. Notice that this holds date only, no time. See also datetime.",
             "type": "string",
             "format": "date"
         },
+        
         "datetime": {
             "title": "Date and time",
             "description": "$$TT For items that concern a specific date and time. See also date.",
             "type": "string",
             "format": "date-time"
         },
+        
         "enddate": {
             "title": "End date",
             "description": "$$TT Used for items that concern a specific date such as events and planning items and has a specific enddate. Notice that this holds date only, no time. See also enddatetime.",
             "type": "string",
             "format": "date"
         },
+        
         "enddatetime": {
             "title": "End date and time",
             "description": "$$TT For items that concern a specific enddate and time. See also enddate.",
             "type": "string",
             "format": "date-time"
         },
+        
         "job": {
             "title": "Job",
             "description": "$$TT: Identifier of a grouping job this item belongs to. Typically the id of the job the article belong to, normally something like 327890.",
             "type": "string"
         },
+        
         "pubstatus": {
             "title": "Publication status",
             "description": "The publishing status of the news object, its value is *usable* by default. Please note that for information about events that have been canceled the pubstatus of the ttninjs object will still be usable. The cancel information can be found in body_event. $$TT: replaced and comissioned added by TT.",
@@ -130,81 +147,97 @@
                 "commissioned"
             ]
         },
+        
         "urgency": {
             "title": "Urgency",
             "description": "The editorial urgency of the content from 1 to 9. 1 represents the highest urgency, 9 the lowest. $$TT: 1 is most urgent. 4 is normal. Definition here http://tt.se/spec/prio/1.0",
             "type": "number"
         },
+        
         "copyrightholder": {
             "title": "Copyright holder",
             "description": "The person or organisation claiming the intellectual property for the content.",
             "type": "string"
         },
+        
         "copyrightnotice": {
             "title": "Copyright notice",
             "description": "Any necessary copyright notice for claiming the intellectual property for the content.",
             "type": "string"
         },
+        
         "usageterms": {
             "title": "Usage terms",
             "description": "A natural-language statement about the usage terms pertaining to the content. $$TT: Specifically contains image usage restrictions from TT's suppliers.",
             "type": "string"
         },
+        
         "ednote": {
             "title": "Editorial note",
             "description": "A note that is intended to be read by internal staff at the receiving organisation, but not published to the end-user. (Added in version 1.2 from issue #6.) . ednote: nar:edNote  $$TT: TT will start using ednote and deprecate description_usage",
             "type": "string"
         },
+        
         "language": {
             "title": "Language",
             "description": "The human language used by the content. The value should follow IETF BCP47",
             "type": "string"
         },
+        
         "week": {
             "title": "Week",
             "description": "$$TT: The number of the week the item is planned to be published. Mainly used for feature-articles and ready pages. Also showing the week-number of planning and events.",
             "type": "number"
         },
+        
         "webprio": {
             "title": "Web priority",
             "description": "$TT: TT managed editorial sort order. Priority numbers range from 1 (most important) to 3 (least). A 0 indicates that the item needs manual attention before publishning. Definitions and sort logic are defined here http://tt.se/spec/webprio/1.0",
             "type": "number"
         },
+        
         "source": {
             "title": "Source",
             "description": "$$TT: String identifier for originating source of content.",
             "type": "string"
         },
+        
         "commissioncode": {
             "title": "Commisioncode",
             "description": "$$TT: String identifier for who receives commission for this object.",
             "type": "string"
         },
+        
         "description_text": {
             "title": "Description of text",
             "description": "$$TT: Textual description of the item as text.",
             "type": "string"
         },
+        
         "description_usage": {
             "title": "Description of usage",
             "description": "$$TT: TT editorial information. Can be anything from planned re-relases of object to restrictions. (DEPRECATED, use ednote instead!)",
             "type": "string"
         },
+        
         "body_text": {
             "title": "Body text",
             "description": "$$TT: The textual content of the news object as untagged text. Only present if type is PUBL or DATA.",
             "type": "string"
         },
+        
         "body_html5": {
             "title": "Body HTML5",
             "description": "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL or DATA.",
             "type": "string"
         },
+        
         "body_richhtml5": {
             "title": "Body rich HTML5",
             "description": "$$TT: The textual content of the news object as HTML5. Only present if type is PUBL or DATA. See alternative html5 schemas for details. richhtml5 allow more than the older html5 container",
             "type": "string"
         },
+        
         "body_event": {
             "title": "Body event-data",
             "description": "$$TT: Object with properties containing data on upcoming events.",
