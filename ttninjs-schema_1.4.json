@@ -1194,9 +1194,9 @@
                             "format": "uri"
                         }
                     },
-                    "versiondatetime": {
+                    "versioncreated": {
                       "title": "Version date and time",
-                      "description": "Date and time when this version was published.",
+                      "description": "Date and time when this version was published = created. (Added in 1.4)",
                       "type": "string",
                       "format": "date-time"
                     }

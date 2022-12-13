@@ -5,7 +5,7 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
-    "prepublishOnly": "json2ts ttninjs-schema_1.0.json ttninjs_10.ts && json2ts ttninjs-schema_1.1.json ttninjs_11.ts && json2ts ttninjs-schema_1.3.json ttninjs_13.ts"
+    "prepublishOnly": "json2ts ttninjs-schema_1.0.json ttninjs_10.ts && json2ts ttninjs-schema_1.1.json ttninjs_11.ts && json2ts ttninjs-schema_1.3.json ttninjs_13.ts && json2ts ttninjs-schema_1.4.json ttninjs_14.ts"
   },
   "repository": {
     "type": "git",
