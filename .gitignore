@@ -1,6 +1,4 @@
 .editorconfig
 /node_modules/
-/ttninjs_10.ts
-/ttninjs_11.ts
-/ttninjs_13.ts
+/ttninjs_*.ts
 /.log/
