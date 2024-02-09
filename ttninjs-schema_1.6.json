@@ -226,6 +226,12 @@
       "description": "$TT: TT managed editorial sort order. Priority numbers range from 1 (most important) to 3 (least). A 0 indicates that the item needs manual attention before publishning. Definitions and sort logic are defined here http://tt.se/spec/webprio/1.0",
       "type": "number"
     },
+    "newsvalue": {
+        "title": "Newsvalue",
+        "description": "$TT: TT managed editorial sort order. Priority numbers range from 6 (most important) to 1 (least).",
+        "type": "number",
+        "enum": [1,2,3,4,5,6]
+      },
     "source": {
       "title": "Source",
       "description": "$$TT: String identifier for originating source of content.",
