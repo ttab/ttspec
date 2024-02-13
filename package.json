@@ -1,6 +1,6 @@
 {
   "name": "ttspec",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "description": "TT Specifications",
   "main": "./index.js",
   "types": "./index.d.ts",
