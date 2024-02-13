@@ -6,7 +6,7 @@ Repository of TT specifications.
 
 ttninjs change history
 ======================
-
+* 2024-02-13 Added TTNinjs 1.6 specifications with new value `newsvalue`.
 * 2023-03-30 Added TTNinjs 1.4 and 1.5 specifications.
 * 2022-12-13 Added versioncreated to revisions
 * 2021-04-22 Added "types" declaration to package.json
