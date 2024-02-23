@@ -1192,6 +1192,12 @@
           "title": "Retransmission",
           "description": "$$TT: If true this is a retransmission without content change. Also called OMS in the slugline. If the signal do not exist in an item it means retransmission is false.",
           "type": "boolean"
+        },
+        "deliverytags": {
+          "title": "Delivery tags",
+          "description": "$$TT: Array of tags set for this delivery",
+          "type": "array",
+          "items": {"type": "string"}
         }
       }
     },
