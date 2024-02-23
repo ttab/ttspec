@@ -6,6 +6,7 @@ Repository of TT specifications.
 
 ttninjs change history
 ======================
+* 2024-02-23 Added TTNinjs 1.7 specifications with new value `signal.deliverytags`.
 * 2024-02-13 Added TTNinjs 1.6 specifications with new value `newsvalue`.
 * 2023-03-30 Added TTNinjs 1.4 and 1.5 specifications.
 * 2022-12-13 Added versioncreated to revisions
