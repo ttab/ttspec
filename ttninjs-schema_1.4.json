@@ -826,7 +826,7 @@
         },
         "slug": {
             "title": "Slug",
-            "description": "$$TT: Short name given to article while in production. (DEPRECTED, use slugline instead.)",
+            "description": "$$TT: Short name given to article while in production. (DEPRECATED, use slugline instead.)",
             "type": "string"
         },
         "slugline": {
