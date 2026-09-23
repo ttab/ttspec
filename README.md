@@ -6,6 +6,7 @@ Repository of TT specifications.
 
 ttninjs change history
 ======================
+* 2026-04-14 Added TTNinjs 1.9 specifications with new `signals.version` field for identifying the version of a text item. Together with `altids.originaltransmissionreference`, this allows consumers to identify any revision without interpreting replacement chains. Text URIs now use the format `http://tt.se/media/text/{uuid}-v{version}`.
 * 2025-05-21 Added TTNinjs 1.8 specifications with `signal.updatetype` enum extended with value `AVPUB`.
 * 2024-02-23 Added TTNinjs 1.7 specifications with new value `signal.deliverytags`.
 * 2024-02-13 Added TTNinjs 1.6 specifications with new value `newsvalue`.

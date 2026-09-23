@@ -4,6 +4,9 @@ export { TTVariantOfIPTCNinjsNewsInJSONVersion13 as TTNinjs13 } from './ttninjs_
 export { TTVariantOfIPTCNinjsNewsInJSONVersion14 as TTNinjs14 } from './ttninjs_14'
 export { TTVariantOfIPTCNinjsNewsInJSONVersion15 as TTNinjs15 } from './ttninjs_15'
 export { TTVariantOfIPTCNinjsNewsInJSONVersion16 as TTNinjs16 } from './ttninjs_16'
+export { TTVariantOfIPTCNinjsNewsInJSONVersion17 as TTNinjs17 } from './ttninjs_17'
+export { TTVariantOfIPTCNinjsNewsInJSONVersion18 as TTNinjs18 } from './ttninjs_18'
+export { TTVariantOfIPTCNinjsNewsInJSONVersion19 as TTNinjs19 } from './ttninjs_19'
 
 export const enum Variant {
     Normal = "Normal",
